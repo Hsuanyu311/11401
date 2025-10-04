@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>危軒鈺的個人網站</title>
+
+  <!-- AOS動畫CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: #f7f9fb;
+      color: #333;
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #0066cc;
+      color: white;
+      padding: 1.5em 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
+    #darkModeToggle {
+      position: absolute;
+      top: 1.2em;
+      right: 1.5em;
+      padding: 0.4em 0.6em;
+      background: #ffffff33;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .profile {
+      background-color: white;
+      max-width: 600px;
+      margin: 2em auto;
+      padding: 2em;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1em;
+      border: 4px solid #0066cc;
+    }
+
+    section {
+      max-width: 700px;
+      margin: 2em auto;
+      padding: 1.5em;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h3 {
+      margin-bottom: 1em;
+      color: #0066cc;
+      font-size: 1.3em;
+    }
+
+    .skills-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      text-align: center;
+      margin: 1em;
+    }
+
+    .skill img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5em;
+    }
+
+    .works ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .works li {
+      margin: 0.5em 0;
+    }
+
+    .works a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.2s ease;
+    }
+
+    .works a:hover {
+      color: #0066cc;
+    }
+
+    .contact a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #0066cc;
+      color: white;
+      padding: 0.8em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #0052a3;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 1em 0;
+      font-size: 0.95em;
+      color: #555;
+      margin-top: 3em;
+    }
+
+    footer a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 深色模式 */
+    .dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    .dark-mode header {
+      background-color: #1f1f1f;
+    }
+
+    .dark-mode section,
+    .dark-mode .profile {
+      background-color: #1e1e1e;
+      color: #eee;
+      box-shadow: none;
+    }
+
+    .dark-mode footer {
+      background-color: #1f1f1f;
+      color: #bbb;
+    }
+
+    .dark-mode a {
+      color: #90caf9;
+    }
+
+    /* 響應式 */
+    @media screen and (max-width: 768px) {
+      .skills-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill {
+        margin-bottom: 1.5em;
+      }
+
+      .profile,
+      section {
+        margin: 1em;
+        padding: 1em;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+
+      #darkModeToggle {
+        font-size: 1em;
+        top: 1em;
+        right: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>危軒鈺的個人網站</h1>
+    <button id="darkModeToggle">🌙</button>
+  </header>
+
+  <main>
+    <!-- 個人資料 -->
+    <section class="profile" data-aos="fade-down">
+      <img src="profile-img/profile.jpg" alt="Profile Picture" class="profile-img" />
+      <h2>危軒鈺</h2>
+      <p>高雄科技大學 | 進四子四甲</p>
+      <p>你好，歡迎來到我的個人主頁！</p>
+    </section>
+
+    <!-- 關於我 -->
+    <section class="about" data-aos="fade-up">
+      <h3>關於我</h3>
+      <p> 我是一位半工半讀的學生，目前在nokia的包商學習電信業的種種技術。</p>
+      <p> 目標是成為一位中華電信的維運工程師。</p>
+    </section>
+
+    <!-- 作品集 -->
+    <section class="works" data-aos="fade-up">
+      <h3>作品集</h3>
+      <ul>
+        <li><a href="works/project1.html" target="_blank">🎨 我的個人作品網站（一）</a></li>
+        <li><a href="https://codepen.io/" target="_blank">📄 練習作品 on CodePen</a></li>
+        <li><a href="#">📷 網頁切版練習 (Coming Soon)</a></li>
+      </ul>
+    </section>
+
+    <!-- 聯絡資料 -->
+    <section class="contact" data-aos="fade-up">
+      <h3>社群與聯絡方式</h3>
+      <p>Email：<a href="mailto:C111252174@nkust.edu.tw">C111252174@nkust.edu.tw</a></p>
+      <p>GitHub：<a href="https://github.com/Hsuanyu311" target="_blank">Hsuanyu311</a></p>
+      <p>Instagram：<a href="https://instagram.com/mr.hsuan" target="_blank">@mr.hsuan</a></p>
+    </section>
+
+    <!-- 聯絡表單 -->
+    <section class="contact-form" data-aos="fade-up">
+      <h3>聯絡我</h3>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="你的名字" required />
+        <input type="email" name="email" placeholder="你的 Email" required />
+        <textarea name="message" placeholder="留言內容..." rows="5" required></textarea>
+        <button type="submit">送出</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 危軒鈺 | All rights reserved.</p>
+  </footer>
+
+  <!-- AOS動畫JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- 深色模式切換 -->
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
